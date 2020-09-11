@@ -242,7 +242,7 @@ function getArtistByIndex(array, index) {
 
 function get20s(array) {
   const names = [];
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length - 1; i++) {
     if (array[i].years >= 1900 && array[i].years <= 2000) {
       names.push(array[i].name);
     }
@@ -310,7 +310,7 @@ For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte
 
 function lotsOfArt(array) {
   const mvp = []
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length - 1; i++) {
     if (array[i].paintings > 100) {
       mvp.push(array[i].name);
     }
