@@ -213,6 +213,7 @@ console.log(artists[2]);
 
 
 /* Task 2: There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Use an array method to fix this issue and console.log() to check your work. */
+
 typoFix = artists.findIndex((obj) => obj.name == "Vincent Van Dough"); //find object's index
 console.log(typoFix);
 // artists[typoFix].name = "Vincent Van Gogh";
@@ -237,22 +238,21 @@ function getArtistByIndex(array, index) {
 }
 
 /**
-
-
 /* Task 4: Create a function called get20s() that takes data as an argument and returns an array with names of artists who were born in and died in 20th century (1900-2000) example born in 1901 and died in 1959 - included / born in 1889 and died in 1925 not included - should return ["Salvador Dali", "Frida Kahlo"]*/
 
 function get20s(array) {
   const names = [];
   for (let i = 0; i < array.length; i++) {
-    if (array[i].years >= 1900 && array.years <= 2000) {
-      names.push(array[i]);
+    if (array[i].years >= 1900 && array[i].years <= 2000) {
+      names.push(array[i].name);
     }
-    console.log(names);
-    return names;
   }
+  console.log(names);
+  return names;
 }
 names = get20s(artists);
 console.log(names);
+
 
 /* Task 5: Create a function called `removeArtist` that takes two arguments:
  *     (1) artists array
@@ -287,20 +287,18 @@ At the end, this function should return the new array with information added"*/
 console.log(artists.length);
 
 function addArtist(arr, obj) {
-  return arr.push({
-    obj
-  });
+  return [...arr, obj];
 }
-addArtist({
+const me = addArtist(artists, {
   id: 31,
-  name: April Darger,
-  years: 1989 - current day,
-  genre: Web Design,
-  nationality: American
-  bio: Superb dog mom.Finder of things.
+  name: "April Darger",
+  years: "1989 - current day",
+  genre: "Web Design",
+  nationality: "American",
+  bio: "Superb dog mom.Finder of things."
 });
 
-console.log(artists.length);
+console.log(me.length);
 
 /* Task 7: Create a function called lotsOfArt() that takes one argument: 
 
@@ -310,13 +308,18 @@ and returns an array with names of artists who painted more than 100 paintings.
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ..."Albrecht Dürer"]*/
 
-function lotsOfArt( /* Code here */ ) {
-
-  /* Code here */
-
+function lotsOfArt(array) {
+  const mvp = []
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].paintings > 100) {
+      mvp.push(array[i].name);
+    }
+  }
+  return mvp
 }
-
-
+mvp = lotsOfArt(artists);
+console.log(mvp);
+console.log(artists);
 
 // 🎨🎨 STRETCH 🎨🎨//
 
