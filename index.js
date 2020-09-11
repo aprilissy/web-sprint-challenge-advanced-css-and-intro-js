@@ -241,12 +241,18 @@ function getArtistByIndex(array, index) {
 
 /* Task 4: Create a function called get20s() that takes data as an argument and returns an array with names of artists who were born in and died in 20th century (1900-2000) example born in 1901 and died in 1959 - included / born in 1889 and died in 1925 not included - should return ["Salvador Dali", "Frida Kahlo"]*/
 
-function get20s( /* Code here */ ) {
-
-  /* Code here */
-
+function get20s(array) {
+  const names = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].years >= 1900 && array.years <= 2000) {
+      names.push(array[i]);
+    }
+    console.log(names);
+    return names;
+  }
 }
-
+names = get20s(artists);
+console.log(names);
 
 /* Task 5: Create a function called `removeArtist` that takes two arguments:
  *     (1) artists array
@@ -258,11 +264,12 @@ function get20s( /* Code here */ ) {
  * 
  * Note that sucessfully invoking this function multiple times without refreshing your browser will continuously remove artists from the array until there are none left. If you refresh your browser, the data will reset.  
  */
-function removeArtist( /*code here*/ ) {
-  /* code here */
+function removeArtist(array, index) {
+  let change = array[index];
+  array.splice(change, 1);
 }
-
-
+removeArtist(artists, 0);
+console.log(artists.length);
 
 /**
 /* Task 6: Create a function called `addArtist` that can accept an object of information and add it to the artists array. Then, add a 21st artist to the array (you) with custom information!👩‍🎨👨‍🎨
@@ -277,11 +284,23 @@ bio: Add 1-2 sentences (or use lorem ipsum)
 
 At the end, this function should return the new array with information added"*/
 
-function addArtist( /* Code here */ ) {
+console.log(artists.length);
 
-  /* Code here */
-
+function addArtist(arr, obj) {
+  return arr.push({
+    obj
+  });
 }
+addArtist({
+  id: 31,
+  name: April Darger,
+  years: 1989 - current day,
+  genre: Web Design,
+  nationality: American
+  bio: Superb dog mom.Finder of things.
+});
+
+console.log(artists.length);
 
 /* Task 7: Create a function called lotsOfArt() that takes one argument: 
 
